@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Login Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Soft animated overlay */
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
+  animation: fadeBg 4s ease-in-out infinite alternate;
+}
+@keyframes fadeBg {
+  from { backdrop-filter: blur(1px); }
+  to { backdrop-filter: blur(4px); }
+}
+
+/* Login card */
+.login-container {
+  width: 330px;
+  padding: 25px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  color: white;
+  backdrop-filter: blur(12px);
+  text-align: center;
+  animation: slideUp 1.2s ease;
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+h2 {
+  margin: 0;
+  font-weight: 600;
+  animation: fadeIn 2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+input {
+  width: 92%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+input:focus {
+  box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, #ff8c42, #ff5e00);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255,94,0,0.5);
+}
+
+p { color: white; font-size: 14px; margin-top: 15px; }
+a { color: #ffd27f; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+</head>
+<body style="background-image: url('HTML IMAGES/DBG.jpg'); background-size:cover; background-repeat: no-repeat;">
+<div class="bg-overlay"></div>
+
+<div class="login-container">
+  <h2>WELCOME TO JD's Kitchen</h2>
+  <h2 style="font-size:18px; opacity:0.9; margin-bottom:15px;">The Best Filipino Food</h2>
+
+  <form action="Menu.html">
+    <button type="submit">ENTER</button>
+  </form>
+
+
+</div>
+
+</body>
+</html>

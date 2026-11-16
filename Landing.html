@@ -1,0 +1,553 @@
+    
+
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<title>Landing Form</title>  <style>  
+  
+    body {  
+        font-family: Arial, sans-serif;  
+        margin: 0;  
+        padding: 0;  
+        color: white;  
+        background: url('HTML IMAGES/cook.jpg');  
+        background-size: cover;  
+        background-attachment: fixed;  
+    }  
+  
+    /* HEADER */  
+    header {  
+        background: rgba(255, 87, 34, 0.85);  
+        backdrop-filter: blur(4px);  
+        color: white;  
+        padding: 1em;  
+        text-align: center;  
+        animation: slideDown 1s ease-out;  
+        position: relative;  
+    }  
+  
+    header .header-buttons {  
+        position: absolute;  
+        top: 10px;  
+        right: 10px;  
+        display: flex;  
+        gap: 10px;  
+    }  
+  
+    header button {  
+        background: orange;  
+        color: black;  
+        border: none;  
+        padding: 0.5em 1em;  
+        font-weight: bold;  
+        border-radius: 20px;  
+        cursor: pointer;  
+        transition: 0.3s;  
+    }  
+  
+    header button:hover {  
+        background: gold;  
+        transform: scale(1.1);  
+    }  
+  
+    @keyframes slideDown {  
+        from { transform: translateY(-80px); opacity: 0; }  
+        to { transform: translateY(0); opacity: 1; }  
+    }  
+  
+    .container {  
+        max-width: 900px;  
+        margin: 2em auto;  
+        padding: 2em;  
+        heigth: 50p  
+    }  
+  
+    .restaurant-info {  
+        text-align: center;  
+        margin-bottom: 1em;  
+        animation: fadeIn 1s ease-in;  
+    }  
+  
+    @keyframes fadeIn {  
+        from {opacity: 0;}  
+        to   {opacity: 1;}  
+    }  
+  
+    .menu-items {  
+        display: grid;  
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+        gap: 2em;  
+    }  
+  
+    .menu-item {  
+        background: rgba(255, 255, 255, 0.15);  
+        backdrop-filter: blur(12px);  
+        border: 1px solid rgba(255,255,255,0.2);  
+        border-radius: 15px;  
+        padding: 1em;  
+        text-align: center;  
+        color: white;  
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);  
+  
+        overflow: hidden;  
+        animation: fadeUp 1.2s ease forwards;  
+        opacity: 0;  
+  
+        transition: transform .2s ease, box-shadow .4s ease;  
+    }  
+  
+    @keyframes fadeUp {  
+        from { transform: translateY(40px); opacity: 0; }  
+        to { transform: translateY(0); opacity: 1; }  
+    }  
+  
+    .menu-item:hover {  
+        transform: scale(1.07);  
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);  
+    }  
+  
+    .menu-item img {  
+        width: 100%;  
+        height: 200px;  
+        object-fit: cover;  
+        border-radius: 10px;  
+        transition: transform .5s ease;  
+    }  
+  
+    .menu-item:hover img {  
+        transform: scale(1.15);  
+    }  
+  
+    .price {  
+        color: yellow;  
+        font-size: 28px;  
+        font-weight: bold;  
+        margin-top: .5em;  
+        text-shadow: 0 0 4px black;  
+    }  
+  
+    button {  
+        background: orange;  
+        color: black;  
+        border: none;  
+        padding: 0.7em 1.4em;  
+        font-weight: bold;  
+        border-radius: 20px;  
+        cursor: pointer;  
+        margin-top: 1em;  
+        transition: 0.3s;  
+    }  
+  
+    button:hover {  
+        background: gold;  
+        transform: scale(1.1);  
+    }  
+  
+    footer {  
+        background: rgba(0,0,0,0.6);  
+        padding: 1em;  
+        text-align: center;  
+        margin-top: 3em;  
+        backdrop-filter: blur(5px);  
+        animation: fadeIn 2.5s ease-in;  
+    }  
+  
+</style>
+</head> 
+
+ <body> 
+     
+     
+     
+      <header>  
+    <h1>FoodOrder</h1>  
+    <p>Order delicious meals from your favorite restaurants!</p>
+          
+          <!-- HEADER BUTTONS (SIGN IN) -->  
+<div class="header-buttons">  
+    <form action="Log in Form.html">  
+        <button type="submit">Sign In</button>  
+    </form>  
+
+      
+</div>
+
+</header> 
+     
+     
+      <div class="container">  <div class="restaurant-info">  
+    <h2>Restaurant: Royal Taste</h2>  
+    <p>Specializing in Filipino & Asian Fusion Cuisine</p>  
+    <p>Contact: 09359135179</p>  
+    <p>Address: Busaran Poblacion, Sablayan Occidental Mindoro</p>  
+</div>  
+
+<center><h1>MENU</h1></center>  
+
+<div class="menu-items">  
+
+    <!-- SAMPLE FIXED ITEM -->  
+    <div class="menu-item">  
+        <img src="HTML IMAGES/Ribeye Steak.jpg">  
+        <h4>Ribeye Steak</h4>  
+        <p>Classic Filipino food Ribeye Steak</p>  
+        <p class="price">₱180</p>  
+          
+    </div>  
+      
+      
+      
+      
+      
+      
+
+
+
+
+      
+
+    <!-- Continue all your other items normally -->  
+    <!-- (Your original items remain the same) -->  
+
+      
+      
+         
+    <!-- FOODS -->  
+         
+                    <div class="menu-item">   
+            <img src="HTML IMAGES\Savory Teriyaki Chicken.jpg":></img>                                               
+            <h4>Savory Teriyaki Chicken</h4>   
+            <p>Classic Filipino food Savory Teriyaki Chicken </p>   
+            <p class="price">₱190</p>   
+              
+        </div>   
+         
+         
+         
+         
+         
+
+                   <div class="menu-item">   
+                        
+            <img src="HTML IMAGES\Wings Bufalo.jpg": ></img>                                              
+            <h4>Wings Bufalo</h4>   
+            <p>Classic Filipino food Wings Bufalo </p>   
+            <p class="price">₱150</p>   
+            
+        </div>   
+
+         
+         
+         
+         
+         
+            <div class="menu-item">   
+            <img src="HTML IMAGES\Pork and Shrimp Shomai.jpg":></img>                                               
+            <h4>Pork and Shrimp Shomai</h4>   
+            <p>Classic Filipino food Pork and Shrimp Shomai </p>   
+               
+            <p class="price">₱85</p>   
+              
+            
+               
+        </div>   
+         
+         
+         
+         
+         
+         
+        <div class="menu-item">   
+            <img src="HTML IMAGES\Pancit Palabok.jpg": ></img>                                              
+            <h4>Pancit Palabok</h4>   
+            <p>Classic Filipino food Pancit Palabok</p>   
+               
+            <p class="price">₱200</p>   
+              
+              
+               
+        </div>   
+         
+         
+         
+         
+         
+
+        <div class="menu-item">   
+            <img src="HTML IMAGES\Oven Grilled Tilapia.jpg":></img>                                                
+            <h4>Oven Grilled Tilapia</h4>   
+            <p>Classic Filipino food Grilled Tilapia</p>   
+            <p class="price">₱85</p>   
+             
+        </div>   
+         
+         
+         
+         
+         
+         
+         
+
+        <div class="menu-item">   
+            <img src="HTML IMAGES\Nachos.jpg":></img>                                               
+            <h4>Nachos</h4>   
+            <p>Classic Filipino food Nachos</p>   
+            <p class="price">₱120</p>   
+              
+        </div>   
+         
+         
+         
+         
+         
+         
+
+          <div class="menu-item">   
+            <img src="HTML IMAGES\Lumpiang Shanghai.jpg":></img>                                               
+            <h4>Lumpiang Shanghai</h4>   
+            <p>Classic Filipino Lumpiang Shanghai with sweet and Spicy vinegar</p>   
+            <p class="price">₱125</p>   
+              
+        </div>   
+         
+         
+         
+         
+         
+         
+
+            
+
+         
+         
+         
+         
+         
+         
+         <div class="menu-item">   
+            <img src="HTML IMAGES\Chicken Shawarma.jpg":></img>                                               
+            <h4>Chicken Shawarma</h4>   
+            <p>Classic Filipino Chicken Shawarma  with perfectly taste</p>   
+            <p class="price">₱150</p>   
+               
+        </div>   
+         
+         
+         
+         
+         
+         
+         
+         
+
+         <div class="menu-item">   
+            <img src="HTML IMAGES\Chicken Adobo.jpg":></img>                                               
+            <h4>Chicken Adobo</h4>   
+            <p>Classic Filipino adobo </p>   
+            <p class="price">₱115</p>   
+              
+        </div>   
+         
+         
+         
+         
+         
+         
+         
+         
+
+         <div class="menu-item">   
+            <img src="HTML IMAGES\Beef Sinigang.jpg":></img>                                               
+            <h4>Beef Sinigang</h4>   
+            <p>Classic Filipino Beef Sinigang</p>   
+            <p class="price">₱120</p>   
+              
+        </div>   
+         
+         
+         
+         
+         
+         
+         
+
+        <div class="menu-item">   
+            <img src="HTML IMAGES\Beef and Vegetable Kabobs.jpg":></img>                                               
+            <h4>Beef and Vegetable kabobs</h4>   
+            <p>Classic Filipino Beef and Vegetable kabobs </p>   
+            <p class="price">₱185</p>   
+              
+        </div>   
+         
+  
+         
+
+                    <div class="menu-item">   
+            <img src="HTML IMAGES\Alaska Roll Sushi.jpg":></img>                                               
+            <h4>Alaska Roll Sushi</h4>   
+            <p>Classic Filipino Alaska Roll Sushi and Perfectly taste</p>   
+            <p class="price">₱90</p>   
+              
+        </div>   
+      
+      
+      
+    <div class="menu-item">   
+            <img src="HTML IMAGES\HaloHalo.jpg":></img>                                               
+            <h4>Halo Halo</h4>   
+            <p>Classic Filipino Dessert Halo Halo with sweet taste</p>   
+            <p class="price">₱75</p>   
+            <  
+        </div>   
+  
+      
+      
+    
+      
+      
+      
+      
+      
+      
+      
+         
+       <!-- DESERT -->   
+         
+
+  
+<div class="menu-item">  
+        <img src="MPIC/1 black currant milk.jpg" alt="Milktea 1">  
+        <h3>Black  Currant Milk</h3>  
+     <p class="price">₱85</p>   
+          
+          
+    </div>  
+      
+      
+      
+      
+      
+    <div class="menu-item">  
+        <img src="MPIC/2 Bubble Tea.jpg" alt="Milktea 2">  
+        <h3>Bubble Tea</h3>
+
+<p class="price">₱65</p>   </div>  
+      
+      
+      
+      
+      
+    <div class="menu-item">  
+        <img src="MPIC/3 caramel tea.jpg" alt="Milktea 3">  
+        <h3>Caramel Tea</h3>  
+    <p class="price">₱60</p>   
+          
+    </div>  
+      
+      
+      
+      
+      
+    <div class="menu-item">  
+        <img src="MPIC/4 Oreo Milk tea.jpg" alt="Milktea 4">  
+        <h3>Oreo Milk Tea</h3>  
+        <p class="price">₱70</p>   
+          
+    </div>  
+      
+      
+      
+      
+      
+    <div class="menu-item">  
+        <img src="MPIC/5 Taro Milktea.jpg" alt="Milktea 5">  
+        <h3>Taro Milktea</h3>  
+         <p class="price">₱50</p>   
+          
+    </div>  
+      
+      
+      
+      
+    <div class="menu-item">  
+        <img src="MPIC/6 Milktea Bubble.jpg" alt="Milktea 6">  
+        <h3>Milktea Bubble</h3>
+
+<p class="price">₱55</p>   </div>  
+      
+      
+      
+      
+    <div class="menu-item">  
+        <img src="MPIC/7 winter melon .jpg" alt="Milktea 7">  
+        <h3>Winter Melon </h3>  
+          <p class="price">₱45</p>   
+          
+    </div>  
+      
+      
+      
+      
+    <div class="menu-item">  
+        <img src="MPIC/8 Taro milktea.jpg" alt="Milktea 8">  
+        <h3>Taro Milktea</h3>  
+          <p class="price">₱50</p>   
+
+    </div>  
+      
+      
+      
+      
+    <div class="menu-item">  
+        <img src="MPIC/9 manggo milk.jpg" alt="Milktea 9">  
+        <h3>Manggo Milk</h3>  
+          <p class="price">₱65</p>   
+          
+    </div>  
+      
+      
+      
+      
+      
+    <div class="menu-item">  
+        <img src="MPIC/10 milk.jpg" alt="Milktea 10">  
+        <h3>Milk Choco</h3>  
+                        <p class="price">₱40</p>   
+          
+    </div>  
+     
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+    <!-- Your other items remain the same (I fixed image tags only) -->  
+</div>
+
+</div>  <script>  
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];  
+  
+    function addToCart(name, price) {  
+        let existingItem = cart.find(item => item.name === name);  
+  
+        if (existingItem) {  
+            existingItem.qty += 1;  
+        } else {  
+            cart.push({ name: name, price: price, qty: 1 });  
+        }  
+  
+        localStorage.setItem('cart', JSON.stringify(cart));  
+        alert(name + ' added to cart!');  
+    }  
+</script>  <footer>  
+    <p>&copy; 2024 FoodOrder | Contact: support@foodorder.com | Facebook.com</p>  
+</footer>  </body>  
+</html>  

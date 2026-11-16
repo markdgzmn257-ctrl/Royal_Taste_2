@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Cart</title>
+
+    <style>
+
+        /* GLOBAL RESET + RESPONSIVE DEFAULTS */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('HTML IMAGES/DBG.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* HEADER */
+        header {
+        background: rgba(255, 87, 34, 0.90);
+        backdrop-filter: blur(4px);
+        color: white;
+        padding: 1.2em;
+        text-align: center;
+        animation: slideDown 1s ease-out;
+        position: relative;
+    }
+
+    /* ANIMATION */
+    @keyframes slideDown {
+        from { transform: translateY(-80px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* BOTTOM NAV UNDER HEADER */
+    .nav-bar {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        padding: 0.8em;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .nav-bar button {
+        background: orange;
+        color: black;
+        padding: 0.6em 1.2em;
+        border: none;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .nav-bar button:hover {
+        background: gold;
+        transform: scale(1.1);
+    }
+
+        /* MAIN CART BOX */
+        .cart-box {
+            width: 95%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+
+        /* TABLE */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px; /* prevents breaking on small screens */
+            border-collapse: collapse;
+            color: white;
+        }
+
+        th, td {
+            border: 1px solid rgba(255,255,255,0.4);
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background: rgba(0,0,0,0.5);
+        }
+
+        /* TOTAL TEXT */
+        .total-box {
+            text-align: center;
+            font-size: 26px;
+            margin-top: 20px;
+            text-shadow: 0 0 6px black;
+        }
+
+        /* BUTTONS */
+        button {
+            background: orange;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: gold;
+            transform: scale(1.1);
+        }
+
+        footer {
+            margin-top: 30px;
+            background: rgba(0,0,0,0.6);
+            padding: 1em;
+            text-align: center;
+        }
+
+        /* RESPONSIVE FOR SMALL LAPTOPS + LOW-RES SCREENS */
+        @media (max-width: 1024px) {
+            header {
+                font-size: 26px;
+            }
+
+            .nav-bar button {
+                font-size: 14px;
+                padding: 0.5em 1em;
+            }
+        }
+
+        /* RESPONSIVE FOR MINI LAPTOPS (11"–13") */
+        @media (max-width: 800px) {
+            .cart-box {
+                width: 98%;
+                padding: 15px;
+            }
+
+            .total-box {
+                font-size: 22px;
+            }
+        }
+
+        /* RESPONSIVE FOR TABLETS OR SMALL WINDOWS */
+        @media (max-width: 600px) {
+            .nav-bar {
+                flex-direction: row;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+
+<!-- BOTTOM NAVIGATION BAR -->
+<div class="nav-bar">
+    <form action="menu.html"><button type="submit">MENU</button></form>
+    
+    <form action="Checkout.html"><button type="submit">CHECKOUT</button></form>
+    <form action="Receipt.html"><button type="submit">RECEIPT</button></form>
+</div>
+
+<!-- CART BOX -->
+<div class="cart-box">
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody id="cartItems"></tbody>
+        </table>
+    </div>
+
+    <div class="total-box">
+        Total: ₱<span id="totalAmount">0</span>
+    </div>
+
+    <center>
+        <button onclick="proceedToCheckout()">BUY</button>
+    </center>
+
+</div>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let total = 0;
+
+    function renderCart() {
+        let html = '';
+        total = 0;
+
+        cart.forEach((item, index) => {
+            let itemTotal = item.price * item.qty;
+            total += itemTotal;
+
+            html += `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>₱${item.price}</td>
+                    <td>${item.qty}</td>
+                    <td>₱${itemTotal}</td>
+                </tr>
+            `;
+        });
+
+        document.getElementById('cartItems').innerHTML = html;
+        document.getElementById('totalAmount').textContent = total;
+
+        localStorage.setItem('orderTotal', total);
+    }
+
+    function proceedToCheckout() {
+        if (cart.length > 0) {
+            localStorage.setItem('Carts', JSON.stringify(cart));
+            window.location.href = 'Checkout.html';
+            clearCart();
+        } else {
+            alert('Cart is empty!');
+        }
+    }
+
+    function clearCart() {
+        cart = [];
+        localStorage.removeItem('cart');
+        renderCart();
+    }
+
+    renderCart();
+</script>
+
+<footer>
+    <p>&copy; 2024 FoodOrder | Contact: support@foodorder.com</p>
+</footer>
+
+</body>
+</html>

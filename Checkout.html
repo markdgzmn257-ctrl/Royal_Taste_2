@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <style>
+        /* ---------- PAGE ANIMATION ---------- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-image: url('HTML IMAGES/DBG.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1.5s ease-in-out;
+            color: red;
+            font-size: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ---------- BLURRED BOX ---------- */
+        .login-container {
+            width: 350px;
+            padding: 25px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+            animation: slideUp 1.2s ease-out;
+            margin-top: 100px;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 0 0 6px black;
+        }
+
+        /* ---------- INPUT STYLE ---------- */
+        input, textarea, select {
+            width: 90%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin: 8px 0;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.7);
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            box-shadow: 0 0 10px gold;
+            transform: scale(1.03);
+        }
+
+        textarea {
+            height: 70px;
+            resize: none;
+        }
+
+        /* ---------- BUTTON STYLE ---------- */
+        button {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 90%;
+            margin-top: 10px;
+            transition: 00.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: gold;
+            color: black;
+            transform: scale(1.09);
+            box-shadow: 0 0 15px white;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            padding: 0.8em;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .nav-bar button {
+            background: orange;
+            color: black;
+            padding: 0000.6em 1.2em;
+            border: none;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .nav-bar button:hover {
+            background: gold;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <form action="menu.html"><button type="submit">MENU</button></form>
+        <form action="Carts.html"><button type="submit">CART</button></form>
+        <form action="Receipt.html"><button type="submit">RECEIPT</button></form>
+    </div>
+    <div class="login-container">
+        <form action="Receipt.html">
+            <h1>Customer Details</h1>
+            <label>Name:</label><br>
+            <input id="customerName" type="text">
+            <br>
+            <label>Phone:</label><br>
+            <input id="customerPhone" type="text">
+            <br>
+            <label>Address:</label><br>
+            <textarea id="customerAddress"></textarea>
+            <br>
+            <label>Payment Method:</label><br>
+            <select id="paymentMethod" onchange="showPaymentFields()">
+                <option value="">Select Payment Method</option>
+                <option value="gcash">Gcash</option>
+                <option value="paymaya">PayMaya</option>
+                <option value="banktransfer">Bank Transfer</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+            <br>
+            <div id="paymentFields"></div>
+            <label>Amount Paid:</label><br>
+            <input id="amountPaid" type="number">
+            <br>
+            <button onclick="generateReceipt()">Confirm Order</button>
+        </form>
+    </div>
+    <script>
+        function showPaymentFields() {
+            let paymentMethod = document.getElementById('paymentMethod').value;
+            let paymentFields = document.getElementById('paymentFields');
+            paymentFields.innerHTML = '';
+
+            if (paymentMethod === 'gcash') {
+                paymentFields.innerHTML = `
+                    <label>Gcash Account Number:</label><br>
+                    <input id="gcashAccountNumber" type="text" placeholder="Enter your Gcash account number">
+                    <br>
+                `;
+            } else if (paymentMethod === 'paymaya') {
+                paymentFields.innerHTML = `
+                    <label>PayMaya Account Name:</label><br>
+                    <input id="paymayaAccountName" type="text" placeholder="Enter your Paymaya Acount Name">
+                    <br>
+                    <label>PayMaya Account Number:</label><br>
+                    <input id="paymayaAccountNumber" type="text" placeholder="Enter your Paymaya Acount Number">
+                    <br>
+                `;
+            } else if (paymentMethod === 'banktransfer') {
+                paymentFields.innerHTML = `
+                    <label>Bank Name:</label><br>
+                    <input id="bankName" type="text" placeholder="Enter Bank Name">
+                    <br>
+                    <label>Account Name:</label><br>
+                    <input id="bankAccountName" type="text" placeholder="Enter your Bank Acount Number">
+                    <br>
+                    <label>Account Number:</label><br>
+                    <input id="bankAccountNumber" type="text" placeholder="Enter your Bank Acount Name">
+                    <br>
+                `;
+            } else if (paymentMethod === 'cod') {
+                paymentFields.innerHTML = `
+                    <label>Cash will be collected upon delivery.</label>
+                    <br>
+                `;
+            }
+        }
+
+        function generateReceipt() {
+            let name = document.getElementById('customerName').value;
+            let phone = document.getElementById('customerPhone').value;
+            let address = document.getElementById('customerAddress').value;
+            let paymentMethod = document.getElementById('paymentMethod').value;
+            let amountPaid = document.getElementById('amountPaid').value;
+            let cart = JSON.parse(localStorage.getItem('Carts'));
+            let total = localStorage.getItem('orderTotal');
+            let change = amountPaid - total;
+
+            let paymentDetails = {};
+            if (paymentMethod === 'gcash') {
+                paymentDetails.gcashAccountNumber = document.getElementById('gcashAccountNumber').value;
+            } else if (paymentMethod === 'paymaya') {
+                paymentDetails.paymayaAccountName = document.getElementById('paymayaAccountName').value;
+                paymentDetails.paymayaAccountNumber = document.getElementById('paymayaAccountNumber').value;
+            } else if (paymentMethod === 'banktransfer') {
+                paymentDetails.bankName = document.getElementById('bankName').value;
+                paymentDetails.bankAccountName = document.getElementById('bankAccountName').value;
+                paymentDetails.bankAccountNumber = document.getElementById('bankAccountNumber').value;
+            }
+
+            if (name && phone && address && cart && cart.length > 0 && paymentMethod && amountPaid) {
+                let orderData = {
+                    customerName: name,
+                    customerPhone: phone,
+                    customerAddress: address,
+                    paymentMethod: paymentMethod,
+                    paymentDetails: paymentDetails,
+                    amountPaid: amountPaid,
+                    change: change,
+                    items: cart,
+                    total: total,
+                    date: new Date().toLocaleString()
+                };
+
+                localStorage.setItem('orderData', JSON.stringify(orderData));
+                window.location.href = 'Receipt.html';
+            } else {
+                alert('Please fill all details!');
+            }
+        }
+    </script>
+</body>
+</html>

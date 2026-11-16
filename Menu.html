@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Food Menu</title>
+
+<style>
+
+    /* GLOBAL STYLES */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: white;
+        background: url('HTML IMAGES/cook.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    /* HEADER */
+    header {
+        background: rgba(255, 87, 34, 0.90);
+        backdrop-filter: blur(4px);
+        color: white;
+        padding: 1.2em;
+        text-align: center;
+        animation: slideDown 0s ease-out;
+        position: relative;
+    }
+
+    /* ANIMATION */
+    @keyframes slideDown {
+        from { transform: translateY(-80px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    
+    header .header-buttons {  
+        position: absolute;  
+        top: 10px;  
+        right: 10px;  
+        display: flex;  
+        gap: 10px;  
+    }  
+  
+    header button {  
+        background: orange;  
+        color: black;  
+        border: none;  
+        padding: 0.5em 1em;  
+        font-weight: bold;  
+        border-radius: 20px;  
+        cursor: pointer;  
+        transition: 0.3s;  
+    }  
+  
+    header button:hover {  
+        background: gold;  
+        transform: scale(1.1);  
+    }  
+    
+    
+
+    /* BOTTOM NAV UNDER HEADER */
+    .nav-bar {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        padding: 0.8em;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .nav-bar button {
+        background: orange;
+        color: black;
+        padding: 0.6em 1.2em;
+        border: none;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .nav-bar button:hover {
+        background: gold;
+        transform: scale(1.1);
+    }
+
+    /* CENTER CONTAINER */
+    .container {
+        max-width: 1200px;
+        margin: 2em auto;
+        padding: 1em;
+    }
+
+    /* RESTAURANT INFO */
+    .restaurant-info {
+        text-align: center;
+        margin-bottom: 2em;
+        animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to   {opacity: 1;}
+    }
+
+    /* MENU GRID */
+    .menu-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5em;
+    }
+
+    /* ITEM BOX */
+    .menu-item {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 15px;
+        padding: 1em;
+        text-align: center;
+        color: white;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        animation: fadeUp 1.2s ease forwards;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    /* Animation */
+    @keyframes fadeUp {
+        from { transform: translateY(40px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Hover */
+    .menu-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(255,255,255,0.6);
+    }
+
+    .menu-item img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.5s;
+    }
+
+    .menu-item:hover img {
+        transform: scale(1.15);
+    }
+
+    .price {
+        color: yellow;
+        font-size: 26px;
+        font-weight: bold;
+        margin-top: .5em;
+        text-shadow: 0 0 4px black;
+    }
+
+    button {
+        background: orange;
+        color: black;
+        padding: 0.6em 1.2em;
+        border: none;
+        border-radius: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: gold;
+        transform: scale(1.1);
+    }
+
+    footer {
+        background: rgba(0,0,0,0.6);
+        padding: 1em;
+        text-align: center;
+        margin-top: 3em;
+        backdrop-filter: blur(5px);
+    }
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>FoodOrder</h1>
+    <p>Order delicious meals from your favorite restaurants!</p>
+    
+    
+    <div class="header-buttons">  
+    <form action="Landing.html">  
+        <button type="submit">Log out</button>  
+    </form>  
+
+      
+</div>
+    
+</header>
+
+<!-- NEW BOTTOM NAVIGATION BAR -->
+<div class="nav-bar">
+    
+    <form action="Carts.html"><button type="submit">CART</button></form>
+    <form action="Checkout.html"><button type="submit">CHECKOUT</button></form>
+    <form action="Receipt.html"><button type="submit">RECEIPT</button></form>
+</div>
+
+<div class="container">
+
+    <div class="restaurant-info">
+        <h2>Restaurant: Royal Taste</h2>
+        <p>Filipino & Asian Fusion Cuisine</p>
+        <p>Contact: 0935 913 5179</p>
+        <p>Address: Busaran Poblacion, Sablayan Occidental Mindoro</p>
+    </div>
+
+    <center><h1>MENU</h1></center>
+
+    <div class="menu-items">
+
+        <!-- FIXED EXAMPLE ITEM -->
+        <div class="menu-item">
+            <img src="HTML IMAGES/Ribeye Steak.jpg">
+            <h4>Ribeye Steak</h4>
+            <p>Classic Filipino Ribeye Steak</p>
+            <p class="price">₱180</p>
+            <button onclick="addToCart('Ribeye Steak', 180)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        
+            <!-- FOODS -->
+           
+                        <div class="menu-item"> 
+                <img src="HTML IMAGES\Savory Teriyaki Chicken.jpg":></img>                                             
+                <h4>Savory Teriyaki Chicken</h4> 
+                <p>Classic Filipino food Savory Teriyaki Chicken </p> 
+                <p class="price">₱190</p> 
+                <button onclick="addToCart('Savory Teriyaki Chicken', 190)">Add to Cart</button>  
+            </div> 
+           
+           
+           
+           
+           
+ 
+                       <div class="menu-item"> 
+                          
+                <img src="HTML IMAGES\Wings Bufalo.jpg": ></img>                                            
+                <h4>Wings Bufalo</h4> 
+                <p>Classic Filipino food Wings Bufalo </p> 
+                <p class="price">₱150</p> 
+                <button onclick="addToCart('Wings Bufalo', 150)">Add to Cart</button>  
+            </div> 
+ 
+           
+           
+           
+           
+           
+                <div class="menu-item"> 
+                <img src="HTML IMAGES\Pork and Shrimp Shomai.jpg":></img>                                             
+                <h4>Pork and Shrimp Shomai</h4> 
+                <p>Classic Filipino food Pork and Shrimp Shomai </p> 
+                 
+                <p class="price">₱85</p> 
+                
+                <button onclick="addToCart('Pork and Shrimp Shomai', 85)">Add to Cart</button>  
+                 
+            </div> 
+           
+           
+           
+           
+           
+           
+            <div class="menu-item"> 
+                <img src="HTML IMAGES\Pancit Palabok.jpg": ></img>                                            
+                <h4>Pancit Palabok</h4> 
+                <p>Classic Filipino food Pancit Palabok</p> 
+                 
+                <p class="price">₱200</p> 
+                
+                <button onclick="addToCart('Pancit Palabok', 200)">Add to Cart</button>  
+                 
+            </div> 
+           
+           
+           
+           
+           
+ 
+            <div class="menu-item"> 
+                <img src="HTML IMAGES\Oven Grilled Tilapia.jpg":></img>                                              
+                <h4>Oven Grilled Tilapia</h4> 
+                <p>Classic Filipino food Grilled Tilapia</p> 
+                <p class="price">₱85</p> 
+                <button onclick="addToCart('Oven Grilled Tilapia', 85)">Add to Cart</button> 
+            </div> 
+           
+           
+           
+           
+           
+           
+           
+ 
+            <div class="menu-item"> 
+                <img src="HTML IMAGES\Nachos.jpg":></img>                                             
+                <h4>Nachos</h4> 
+                <p>Classic Filipino food Nachos</p> 
+                <p class="price">₱120</p> 
+                <button onclick="addToCart('Nachos', 120)">Add to Cart</button>  
+            </div> 
+           
+           
+           
+           
+           
+           
+ 
+              <div class="menu-item"> 
+                <img src="HTML IMAGES\Lumpiang Shanghai.jpg":></img>                                             
+                <h4>Lumpiang Shanghai</h4> 
+                <p>Classic Filipino Lumpiang Shanghai with sweet and Spicy vinegar</p> 
+                <p class="price">₱125</p> 
+                <button onclick="addToCart('Lumpiamg Shanghai', 125)">Add to Cart</button>  
+            </div> 
+           
+           
+           
+           
+           
+           
+ 
+              
+ 
+           
+           
+           
+           
+           
+           
+             <div class="menu-item"> 
+                <img src="HTML IMAGES\Chicken Shawarma.jpg":></img>                                             
+                <h4>Chicken Shawarma</h4> 
+                <p>Classic Filipino Chicken Shawarma  with perfectly taste</p> 
+                <p class="price">₱150</p> 
+                <button onclick="addToCart('Chicken Shawarma', 150)">Add to Cart</button>  
+            </div> 
+           
+           
+           
+           
+           
+           
+           
+           
+ 
+             <div class="menu-item"> 
+                <img src="HTML IMAGES\Chicken Adobo.jpg":></img>                                             
+                <h4>Chicken Adobo</h4> 
+                <p>Classic Filipino adobo </p> 
+                <p class="price">₱115</p> 
+                <button onclick="addToCart('Chicken Adobo', 115)">Add to Cart</button>  
+            </div> 
+           
+           
+           
+           
+           
+           
+           
+           
+ 
+             <div class="menu-item"> 
+                <img src="HTML IMAGES\Beef Sinigang.jpg":></img>                                             
+                <h4>Beef Sinigang</h4> 
+                <p>Classic Filipino Beef Sinigang</p> 
+                <p class="price">₱120</p> 
+                <button onclick="addToCart('Beef Sinigang', 120)">Add to Cart</button>  
+            </div> 
+           
+           
+           
+           
+           
+           
+           
+ 
+            <div class="menu-item"> 
+                <img src="HTML IMAGES\Beef and Vegetable Kabobs.jpg":></img>                                             
+                <h4>Beef and Vegetable kabobs</h4> 
+                <p>Classic Filipino Beef and Vegetable kabobs </p> 
+                <p class="price">₱185</p> 
+                <button onclick="addToCart('Beef and Vegetable kabobs', 185)">Add to Cart</button>  
+            </div> 
+           
+    
+           
+ 
+                        <div class="menu-item"> 
+                <img src="HTML IMAGES\Alaska Roll Sushi.jpg":></img>                                             
+                <h4>Alaska Roll Sushi</h4> 
+                <p>Classic Filipino Alaska Roll Sushi and Perfectly taste</p> 
+                <p class="price">₱90</p> 
+                <button onclick="addToCart('Alaska Roll Sushi', 90)">Add to Cart</button>  
+            </div> 
+        
+        
+        
+        <div class="menu-item"> 
+                <img src="HTML IMAGES\HaloHalo.jpg":></img>                                             
+                <h4>Halo Halo</h4> 
+                <p>Classic Filipino Dessert Halo Halo with sweet taste</p> 
+                <p class="price">₱75</p> 
+                <button onclick="addToCart('Halo Halo', 75)">Add to Cart</button>  
+            </div> 
+    
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+           
+           <!-- DESERT --> 
+           
+  
+    
+    <div class="menu-item">
+            <img src="MPIC/1 black currant milk.jpg" alt="Milktea 1">
+            <h3>Black  Currant Milk</h3>
+         <p class="price">₱85</p> 
+            
+            <button onclick="addToCart('Black Currant Milk', 100)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        
+        <div class="menu-item">
+            <img src="MPIC/2 Bubble Tea.jpg" alt="Milktea 2">
+            <h3>Bubble Tea</h3>
+<p class="price">₱65</p> 
+            
+            <button onclick="addToCart('Milktea 2', 120)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        
+        <div class="menu-item">
+            <img src="MPIC/3 caramel tea.jpg" alt="Milktea 3">
+            <h3>Caramel Tea</h3>
+        <p class="price">₱60</p> 
+            <button onclick="addToCart('Milktea 2', 120)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        
+        <div class="menu-item">
+            <img src="MPIC/4 Oreo Milk tea.jpg" alt="Milktea 4">
+            <h3>Oreo Milk Tea</h3>
+            <p class="price">₱70</p> 
+            <button onclick="addToCart('Milktea 2', 120)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        
+        <div class="menu-item">
+            <img src="MPIC/5 Taro Milktea.jpg" alt="Milktea 5">
+            <h3>Taro Milktea</h3>
+             <p class="price">₱50</p> 
+            <button onclick="addToCart('Milktea 2', 120)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        <div class="menu-item">
+            <img src="MPIC/6 Milktea Bubble.jpg" alt="Milktea 6">
+            <h3>Milktea Bubble</h3>
+<p class="price">₱55</p> 
+            <button onclick="addToCart('Milktea 2', 120)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        <div class="menu-item">
+            <img src="MPIC/7 winter melon .jpg" alt="Milktea 7">
+            <h3>Winter Melon </h3>
+              <p class="price">₱45</p> 
+            <button onclick="addToCart('Milktea 2', 120)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        <div class="menu-item">
+            <img src="MPIC/8 Taro milktea.jpg" alt="Milktea 8">
+            <h3>Taro Milktea</h3>
+              <p class="price">₱50</p> 
+            <button onclick="addToCart('Milktea 2', 120)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        <div class="menu-item">
+            <img src="MPIC/9 manggo milk.jpg" alt="Milktea 9">
+            <h3>Manggo Milk</h3>
+              <p class="price">₱65</p> 
+            <button onclick="addToCart('Manggo Milk', 120)">Add to Cart</button>
+        </div>
+        
+        
+        
+        
+        
+        <div class="menu-item">
+            <img src="MPIC/10 milk.jpg" alt="Milktea 10">
+            <h3>Milk Choco</h3>
+                            <p class="price">₱40</p> 
+            <button onclick="addToCart('Milk Choco', 120)">Add to Cart</button>
+        </div>
+       
+ 
+ 
+ 
+ 
+ 
+   
+   
+ 
+ 
+
+
+
+        
+        
+        
+
+        <!-- KEEP ALL YOUR OTHER ITEMS BELOW (but fixed image tags) -->
+        <!-- I can fix the rest if you want automatic cleanup -->
+    </div>
+
+</div>
+
+<!-- CART SCRIPT -->
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function addToCart(name, price) {
+        let existingItem = cart.find(item => item.name === name);
+
+        if (existingItem) {
+            existingItem.qty += 1;
+        } else {
+            cart.push({ name: name, price: price, qty: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(name + " added to cart!");
+    }
+</script>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2024 FoodOrder | Contact: support@foodorder.com</p>
+</footer>
+
+</body>
+</html>
